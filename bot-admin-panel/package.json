@@ -2,7 +2,7 @@
   "name": "bot-admin-panel",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "https://telegram-bot-ug1b.onrender.com",
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
