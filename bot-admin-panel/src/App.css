@@ -1,0 +1,79 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Global Styles for the Weather Background */
+@keyframes sunMovement {
+  0% {
+    transform: translateX(-50%) translateY(-50%);
+  }
+  100% {
+    transform: translateX(50%) translateY(-50%);
+  }
+}
+
+.weather-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #00aaff, #ffffff); /* Blue sky to white */
+  overflow: hidden;
+  z-index: -1; /* Ensure background stays behind content */
+}
+
+.sun {
+  position: absolute;
+  top: 10%; /* Adjust the top position of the sun */
+  right: 5%; /* Position sun at the top right corner */
+  width: 120px;
+  height: 120px;
+  background-color: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255, 255, 0, 0.7);
+  animation: sunMovement 100s linear infinite; /* Optional movement effect */
+}
+
+.eye-icon {
+  cursor: pointer;
+  padding: 5px;
+  font-size: 20px;
+}
