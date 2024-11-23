@@ -47,11 +47,11 @@ export class TelegramBotService {
   }
 
   private registerCommands() {
-    console.log('hello');
+    // console.log('hello');
 // console.log(this.bot, "Actual bot");
     this.bot.onText(/\/start/, async (msg) => {
-      console.log('Hello');
-      console.log(msg,"Complete Message")
+      // console.log('Hello');
+      // console.log(msg,"Complete Message")
       const chatId = msg.chat.id;
       const first_name = msg.from.first_name;
 
@@ -108,20 +108,17 @@ export class TelegramBotService {
         if (user) {
           this.bot.sendMessage(chatId, 'You have been registered.');
           this.subscribedUsers.add(chatId);
-    
-          // Prompt the user to enter a city
+
           this.bot.sendMessage(chatId, 'Please enter the city for which you want updates.');
-    
-          // Listen for the user's city input
+
           this.bot.once('message', async (responseMsg) => {
             const city = responseMsg.text;
-    
-            // Update the user record with the city
+  
             const updatedUser = await this.userService.updateUserCity(userId, city);
     
             if (updatedUser) {
               this.bot.sendMessage(chatId, `Thank you! You will now receive updates for ${city}.`);
-              this.sendWeatherUpdate(chatId); // Send weather updates for the specified city
+              this.sendWeatherUpdate(chatId);
             } else {
               this.bot.sendMessage(chatId, 'Failed to save your city. Please try again.');
             }
@@ -156,12 +153,12 @@ export class TelegramBotService {
 
     // Listen for any kind of message. There are different kinds of
 // messages.
-this.bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
+// this.bot.on('message', (msg) => {
+//   const chatId = msg.chat.id;
 
 
-  this.bot.sendMessage(chatId, 'Received your message');
-});
+//   this.bot.sendMessage(chatId, 'Received your message');
+// });
   }
 
   // private async sendWeatherUpdate(chatId: number) {
