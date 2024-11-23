@@ -40,7 +40,7 @@ const Dashboard = () => {
   }, []);
 
   const fetchApiKey = () => {
-    axios.get('/admin/api-key')
+    axios.get('https://telegram-bot-ug1b.onrender.com/admin/api-key')
       .then((response) => {
         setApiKey(response.data);
       })
@@ -51,7 +51,7 @@ const Dashboard = () => {
 
   const updateApiKey = () => {
     setIsUpdatingApiKey(true);
-    axios.post('/admin/api-key', {key:newApiKey})
+    axios.post('https://telegram-bot-ug1b.onrender.com/admin/api-key', {key:newApiKey})
       .then((response) => {
         alert('API Key updated successfully!');
         setIsDialogOpen(false);
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
   const fetchUsers = () => {
     setIsFetchingUsers(true);
-    axios.get('/users')
+    axios.get('https://telegram-bot-ug1b.onrender.com/users')
       .then((response) => {
         setUsers(response.data);
       })
@@ -95,7 +95,7 @@ const Dashboard = () => {
   };
 
   const deleteUser = (chatId) => {
-    axios.delete(`/users/${chatId}`)
+    axios.delete(`https://telegram-bot-ug1b.onrender.com/users/${chatId}`)
       .then((response) => {
         alert(response.data.message);
         fetchUsers();
